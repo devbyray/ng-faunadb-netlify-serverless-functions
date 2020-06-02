@@ -23,6 +23,7 @@
 		"@angular/platform-browser": "~9.1.9",
 		"@angular/platform-browser-dynamic": "~9.1.9",
 		"@angular/router": "~9.1.9",
+		"faunadb": "^2.14.1",
 		"netlify-lambda": "^1.6.3",
 		"rxjs": "~6.5.4",
 		"tslib": "^1.10.0",
