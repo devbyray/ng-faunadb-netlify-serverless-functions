@@ -1,9 +1,7 @@
-import faunadb from 'faunadb'
-
 import { ProductService } from '../lib/product-service.js'
-import { client, q, headers } from '../lib/config.js'
+import { client, headers } from '../lib/config.js'
 
-const service = new ProductService({ client, q })
+const service = new ProductService({ client })
 
 exports.handler = async (event, context) => {
 	console.log('Function `products` invoked')
