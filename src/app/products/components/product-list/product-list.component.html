@@ -1,0 +1,9 @@
+<ng-container *ngIf="products">
+	<ul>
+		<li *ngFor="let product of products">
+			<img *ngIf="product.image" class="product__image" [src]="product.image" alt="" />
+			<strong class="product__title">{{ product.name }}</strong>
+			<p class="product__description">{{ product.description }}</p>
+		</li>
+	</ul>
+</ng-container>
