@@ -1,9 +1,14 @@
-<ng-container *ngIf="products">
-	<ul>
-		<li *ngFor="let product of products">
+<mat-grid-list cols="2" rowHeight="400px" gutterSize="1rem">
+	<ng-container *ngFor="let product of products">
+		<mat-grid-tile>
+			<mat-grid-tile-header class="product__header">
+				<strong class="product__title">{{ product.name }}</strong>
+				<em class="product__price">{{ product.price | currency: 'EUR' }}</em>
+			</mat-grid-tile-header>
 			<img *ngIf="product.image" class="product__image" [src]="product.image" alt="" />
-			<strong class="product__title">{{ product.name }}</strong>
-			<p class="product__description">{{ product.description }}</p>
-		</li>
-	</ul>
-</ng-container>
+			<mat-grid-tile-footer>
+				<p class="product__description">{{ product.description }}</p>
+			</mat-grid-tile-footer>
+		</mat-grid-tile>
+	</ng-container>
+</mat-grid-list>

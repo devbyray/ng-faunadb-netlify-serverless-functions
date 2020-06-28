@@ -1,0 +1,18 @@
+mat-grid-list {
+	width: 1024px;
+}
+.mat-grid-tile .mat-grid-tile-header >,
+.mat-grid-tile .mat-grid-tile-footer > {
+	.product {
+		&__title {
+			font-size: 2rem;
+		}
+		&__description {
+			font-size: 1.3rem;
+		}
+		&__price {
+			margin-left: auto;
+			font-size: 1.6rem;
+		}
+	}
+}
