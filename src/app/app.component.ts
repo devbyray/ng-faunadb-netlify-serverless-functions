@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
+import { ProductService } from './products/service/product.service'
 
 @Component({
 	selector: 'app-root',
@@ -11,9 +12,5 @@ export class AppComponent implements OnInit {
 
 	constructor(private http: HttpClient) {}
 
-	ngOnInit() {
-		this.http.get('http://localhost:9000/.netlify/functions/products').subscribe((response) => {
-			console.log('response: ', response)
-		})
-	}
+	ngOnInit() {}
 }
