@@ -1,0 +1,14 @@
+<h2>Product ID: {{ id }}</h2>
+
+<pre>{{ productItem | json }}</pre>
+
+<section *ngIf="productItem">
+	<header class="product__header">
+		<strong class="product__title">{{ productItem.name }}</strong>
+		<em class="product__price">{{ productItem.price | currency: 'EUR' }}</em>
+	</header>
+	<img *ngIf="productItem.image" class="product__image" [src]="productItem.image" alt="" />
+	<footer>
+		<p class="product__description">{{ productItem.description }}</p>
+	</footer>
+</section>
