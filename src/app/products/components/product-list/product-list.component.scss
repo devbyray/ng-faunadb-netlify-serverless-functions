@@ -1,18 +1,39 @@
-mat-grid-list {
-	width: 1024px;
+:host {
+	width: 100%;
 }
-.mat-grid-tile .mat-grid-tile-header >,
-.mat-grid-tile .mat-grid-tile-footer > {
-	.product {
-		&__title {
-			font-size: 2rem;
-		}
-		&__description {
-			font-size: 1.3rem;
-		}
-		&__price {
-			margin-left: auto;
-			font-size: 1.6rem;
-		}
+
+$productSize: 400px;
+
+.products__container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: $productSize;
+}
+.product {
+	&__item {
+		position: relative;
+		overflow: hidden;
+	}
+	&__title {
+		font-size: 2rem;
+	}
+	&__header,
+	&__footer {
+		height: 100px;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	&__description {
+		font-size: 1.3rem;
+	}
+	&__price {
+		margin-left: auto;
+		font-size: 1.6rem;
+	}
+	&__image {
+		height: $productSize;
+		width: 100%;
+		object-fit: cover;
+		position: absolute;
+		z-index: -1;
 	}
 }

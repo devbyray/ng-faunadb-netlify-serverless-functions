@@ -4,9 +4,10 @@ export class Product {
 	data: ProductData = null
 
 	constructor(data) {
+		console.log('ref: ', data.ref['@ref'].id)
 		this.ref = data.ref
 		this.ts = data.ts
-		this.data = data.data
+		this.data = new ProductData(data.ref['@ref'].id, data.data)
 	}
 }
 
@@ -19,8 +20,11 @@ export class ProductData {
 	backorderLimit: number = 0
 	backordered = false
 	image?: string = ''
+	id: string = ''
 
-	constructor(data) {
+	constructor(id, data) {
+		console.log('id: ', typeof id)
+		this.id = id
 		this.name = data.name
 		this.description = data.description
 		this.price = data.price

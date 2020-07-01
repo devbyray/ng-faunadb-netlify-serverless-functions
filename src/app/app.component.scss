@@ -33,31 +33,31 @@ p {
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 60px;
+	height: 120px;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #1976d2;
-	color: white;
+	background-color: #b1d8ff;
+	color: #267fd8;
 	font-weight: 600;
-}
+	padding: 0 1rem;
+	h1 {
+		font-size: 2rem;
+	}
+	h1,
+	button {
+		margin: 0.5rem;
+	}
 
-.toolbar img {
-	margin: 0 16px;
-}
-
-.toolbar #twitter-logo {
-	height: 40px;
-	margin: 0 16px;
-}
-
-.toolbar #twitter-logo:hover {
-	opacity: 0.8;
+	button {
+		background-color: #267fd8;
+	}
 }
 
 .content {
 	display: flex;
-	margin: 82px auto 32px;
+	margin: 160px auto 32px;
 	padding: 0 16px;
 	max-width: 960px;
 	flex-direction: column;
@@ -67,7 +67,7 @@ p {
 a,
 a:visited,
 a:hover {
-	color: #1976d2;
+	color: #000;
 	text-decoration: none;
 }
 

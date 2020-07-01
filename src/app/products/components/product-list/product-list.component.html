@@ -1,14 +1,16 @@
-<mat-grid-list cols="2" rowHeight="400px" gutterSize="1rem">
+<div class="products__container">
 	<ng-container *ngFor="let product of products">
-		<mat-grid-tile>
-			<mat-grid-tile-header class="product__header">
-				<strong class="product__title">{{ product.name }}</strong>
-				<em class="product__price">{{ product.price | currency: 'EUR' }}</em>
-			</mat-grid-tile-header>
+		<section class="product__item">
 			<img *ngIf="product.image" class="product__image" [src]="product.image" alt="" />
-			<mat-grid-tile-footer>
-				<p class="product__description">{{ product.description }}</p>
-			</mat-grid-tile-footer>
-		</mat-grid-tile>
+			<a [routerLink]="['/product/' + product.id]">
+				<header class="product__header">
+					<strong class="product__title">{{ product.name }}</strong>
+					<em class="product__price">{{ product.price | currency: 'EUR' }}</em>
+				</header>
+				<footer>
+					<p class="product__description">{{ product.description }}</p>
+				</footer>
+			</a>
+		</section>
 	</ng-container>
-</mat-grid-list>
+</div>
