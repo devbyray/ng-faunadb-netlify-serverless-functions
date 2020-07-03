@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { ProductService } from '../../service/product.service'
-import { ProductData, Product } from '../../models/product'
+import { ProductData } from '../../models/product'
 
 @Component({
 	selector: 'app-product-item',
@@ -19,9 +19,8 @@ export class ProductItemComponent implements OnInit {
 			this.id = params?.id
 		})
 
-		this.product.getProductById(this.id).then((data: Product) => {
-			console.log('data', data.data)
-			this.productItem = data.data
+		this.product.getProductById(this.id).then((data: ProductData) => {
+			this.productItem = data
 		})
 	}
 }

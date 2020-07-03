@@ -1,39 +1,45 @@
 :host {
 	width: 100%;
+	--productSize: 400px;
 }
-
-$productSize: 400px;
 
 .products__container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-auto-rows: $productSize;
+	grid-auto-rows: var(--productSize);
+	grid-gap: 1rem;
 }
 .product {
 	&__item {
 		position: relative;
 		overflow: hidden;
+		background: #fff;
+		border-radius: 10px;
+		-webkit-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+		-moz-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+		box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
 	}
 	&__title {
 		font-size: 2rem;
 	}
-	&__header,
-	&__footer {
-		height: 100px;
-		background-color: rgba(0, 0, 0, 0.5);
-	}
-	&__description {
-		font-size: 1.3rem;
+	&__content {
+		display: flex;
+		padding: 1rem;
 	}
 	&__price {
 		margin-left: auto;
-		font-size: 1.6rem;
+		font-size: 2.6rem;
+		color: #000;
 	}
 	&__image {
-		height: $productSize;
+		height: calc(var(--productSize) - 100px);
 		width: 100%;
 		object-fit: cover;
-		position: absolute;
-		z-index: -1;
+	}
+	&__figure {
+		height: calc(var(--productSize) - 100px);
+		width: 100%;
+		padding: 0;
+		margin: 0;
 	}
 }

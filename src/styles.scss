@@ -7,4 +7,15 @@ body {
 body {
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
+	background: rgb(241, 241, 241);
+}
+a,
+a:visited,
+a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #125699;
 }

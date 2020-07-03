@@ -1,14 +1,21 @@
-<h2>Product ID: {{ id }}</h2>
+<!-- <h2>Product ID: {{ id }}</h2> -->
 
-<pre>{{ productItem | json }}</pre>
+<!-- <pre>{{ productItem | json }}</pre> -->
 
-<section *ngIf="productItem">
-	<header class="product__header">
-		<strong class="product__title">{{ productItem.name }}</strong>
-		<em class="product__price">{{ productItem.price | currency: 'EUR' }}</em>
-	</header>
-	<img *ngIf="productItem.image" class="product__image" [src]="productItem.image" alt="" />
-	<footer>
-		<p class="product__description">{{ productItem.description }}</p>
-	</footer>
-</section>
+<ng-container *ngIf="productItem">
+	<section class="product__item">
+		<h1 class="product__title">{{ productItem.name }}</h1>
+		<ng-container *ngIf="productItem.image">
+			<figure class="product__figure">
+				<img loading="lazy" *ngIf="productItem.image" width="640px" class="product__image" [src]="productItem.image" alt="" />
+			</figure>
+		</ng-container>
+		<div class="product__content">
+			<p class="product__description">{{ productItem.description }}</p>
+		</div>
+		<footer class="product__footer">
+			<em class="product__price">{{ productItem.price | currency: 'EUR' }}</em>
+			<button class="product__card-btn" mat-flat-button>Add to cart</button>
+		</footer>
+	</section>
+</ng-container>

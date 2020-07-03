@@ -1,0 +1,47 @@
+:host {
+	--productSize: 600px;
+}
+
+.product {
+	&__item {
+		position: relative;
+		overflow: hidden;
+		background: #fff;
+		border-radius: 10px;
+		-webkit-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+		-moz-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+		box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+	}
+	&__title {
+		padding: 1rem;
+		font-size: 2rem;
+	}
+	&__content {
+		padding: 1rem;
+	}
+	&__description {
+		width: 100%;
+	}
+	&__price {
+		color: #000;
+		font-size: 1.6rem;
+		margin-bottom: 1rem;
+	}
+	&__image {
+		height: calc(var(--productSize) - 100px);
+		width: 100%;
+		object-fit: cover;
+	}
+	&__figure {
+		height: calc(var(--productSize) - 100px);
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	&__footer {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
+}

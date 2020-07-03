@@ -4,7 +4,6 @@ export class Product {
 	data: ProductData = null
 
 	constructor(data) {
-		console.log('ref: ', data.ref['@ref'].id)
 		this.ref = data.ref
 		this.ts = data.ts
 		this.data = new ProductData(data.ref['@ref'].id, data.data)
