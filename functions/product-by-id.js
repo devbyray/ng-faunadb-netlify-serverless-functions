@@ -5,7 +5,6 @@ const service = new ProductService({ client })
 
 exports.handler = async (event, context) => {
 	console.log('Function `products` invoked')
-	console.log('productById: ', event)
 
 	const { path } = event
 	const productId = path.substr(path.lastIndexOf('/') + 1)
@@ -30,7 +29,7 @@ exports.handler = async (event, context) => {
 			body: JSON.stringify(product),
 		}
 	} catch (error) {
-		// console.log('error', error)
+		console.log('error', error)
 
 		return {
 			statusCode: 400,
