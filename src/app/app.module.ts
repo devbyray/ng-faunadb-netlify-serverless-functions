@@ -22,7 +22,9 @@ import { MatInputModule } from '@angular/material/input'
 import { MatRadioModule } from '@angular/material/radio'
 import { MatSelectModule } from '@angular/material/select'
 import { MatCheckboxModule } from '@angular/material/checkbox'
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core'
+import { MatTableModule } from '@angular/material/table'
+
 import { ProductAdminComponent } from './products/components/product-admin/product-admin.component'
 
 @NgModule({
@@ -44,6 +46,7 @@ import { ProductAdminComponent } from './products/components/product-admin/produ
 		MatInputModule,
 		MatRadioModule,
 		MatSelectModule,
+		MatTableModule,
 
 		MatNativeDateModule,
 		FormlyMatDatepickerModule,
