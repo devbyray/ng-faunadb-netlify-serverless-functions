@@ -6,7 +6,9 @@ export class Product {
 	constructor(data) {
 		this.ref = data.ref
 		this.ts = data.ts
-		this.data = new ProductData(data.ref['@ref'].id, data.data)
+		const product = { ...data.data }
+		product.id = data.ref['@ref'].id
+		this.data = new ProductData(product)
 	}
 }
 
@@ -21,16 +23,15 @@ export class ProductData {
 	image?: string = ''
 	id: string = ''
 
-	constructor(id, data) {
-		console.log('id: ', typeof id)
-		this.id = id
-		this.name = data.name
-		this.description = data.description
-		this.price = data.price
-		this.quantity = data.quantity
-		this.storehouse = data.storehouse
-		this.backorderLimit = data.backorderLimit
-		this.backordered = data.backordered
-		this.image = data.image || ''
+	constructor(data?) {
+		this.id = data?.id ?? ''
+		this.name = data?.name ?? ''
+		this.description = data?.description ?? ''
+		this.price = data?.price ?? ''
+		this.quantity = data?.quantity ?? ''
+		this.storehouse = data?.storehouse ?? ''
+		this.backorderLimit = data?.backorderLimit ?? ''
+		this.backordered = data?.backordered ?? ''
+		this.image = data?.image || ''
 	}
 }

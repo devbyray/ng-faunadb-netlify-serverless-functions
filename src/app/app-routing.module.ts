@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { ProductListComponent } from './products/components/product-list/product-list.component'
 import { ProductItemComponent } from './products/components/product-item/product-item.component'
 import { ProductAdminComponent } from './products/components/product-admin/product-admin.component'
+import { ProductFormComponent } from './products/components/product-form/product-form.component'
 
 const routes: Routes = [
 	{
@@ -16,6 +17,14 @@ const routes: Routes = [
 	{
 		path: 'admin',
 		component: ProductAdminComponent,
+	},
+	{
+		path: 'admin/product/:id',
+		component: ProductFormComponent,
+	},
+	{
+		path: '**',
+		redirectTo: '',
 	},
 ]
 
