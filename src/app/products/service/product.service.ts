@@ -13,7 +13,8 @@ export class ProductService {
 		let productsWithImages = null
 		try {
 			products = await this.http.get<Product[]>(environment.apiUrl + 'products').toPromise()
-			productsWithImages = products.map((productItem: Product) => new Product(this.getProductImage(productItem)).data)
+			console.log('products: ', products)
+			productsWithImages = products?.data.map((productItem: Product) => new Product(this.getProductImage(productItem)).data)
 		} catch (error) {
 			console.error(error)
 		}
