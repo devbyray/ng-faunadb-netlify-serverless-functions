@@ -1,6 +1,6 @@
 <header class="admin__header">
 	<h1>Products admin</h1>
-	<button mat-flat-button color="primary">New product</button>
+	<button [routerLink]="['/admin/product/new']" mat-flat-button color="secondary">New product</button>
 </header>
 
 <mat-table [dataSource]="dataSource">

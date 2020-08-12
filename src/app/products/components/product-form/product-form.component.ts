@@ -100,5 +100,9 @@ export class ProductFormComponent implements OnInit {
 
 	public onSubmit(data) {
 		console.log(data)
+		const newProduct = this.product.createNewProduct(data)
+		if (newProduct) {
+			this.route.navigateTo(['/admin'])
+		}
 	}
 }

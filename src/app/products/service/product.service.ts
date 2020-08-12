@@ -20,11 +20,13 @@ export class ProductService {
 		}
 		return productsWithImages
 	}
+
 	public async getProductById(id): Promise<ProductData> {
 		if (!id) return
 		const product = await this.http.get<Product>(environment.apiUrl + 'product-by-id/' + id).toPromise()
 		return new Product(this.getProductImage(product)).data
 	}
+
 	private getProductImage(product: Product): Product {
 		const tempProduct = { ...product }
 
@@ -50,5 +52,19 @@ export class ProductService {
 		}
 
 		return tempProduct
+	}
+
+	public async createNewProduct(productData) {
+		if (!productData) return
+
+		let product = null
+
+		try {
+			product = await this.http.post<Product>(environment.apiUrl + 'product-new/', productData).toPromise()
+		} catch (error) {
+			console.error('error: ', error)
+			return error
+		}
+		return product
 	}
 }
