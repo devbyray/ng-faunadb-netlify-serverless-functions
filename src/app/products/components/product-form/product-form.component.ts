@@ -78,16 +78,6 @@ export class ProductFormComponent implements OnInit {
 		},
 	]
 
-	// "name",
-	// "description",
-	// "price",
-	// "quantity",
-	// "storehouse",
-	// "backorderLimit",
-	// "backordered",
-	// "image",
-	// "id"
-
 	constructor(private product: ProductService, private route: ActivatedRoute) {
 		this.route.params.subscribe((params) => {
 			this.id = params?.id
@@ -102,20 +92,13 @@ export class ProductFormComponent implements OnInit {
 		if (this.id !== 'new') {
 			this.product.getProductById(this.id).then((product) => {
 				this.productItem = product
-
-				this.productProps = this.getProductProps(this.productItem)
 			})
 		} else {
 			this.productItem = new ProductData()
-			this.productProps = this.getProductProps(this.productItem)
 		}
 	}
 
-	private getProductProps(product: ProductData): string[] {
-		return Object.keys(product)
-	}
-
-	public onSubmit() {
-		console.log(this.model)
+	public onSubmit(data) {
+		console.log(data)
 	}
 }

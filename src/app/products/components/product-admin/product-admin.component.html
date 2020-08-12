@@ -1,4 +1,8 @@
-<h1>Products admin</h1>
+<header class="admin__header">
+	<h1>Products admin</h1>
+	<button mat-flat-button color="primary">New product</button>
+</header>
+
 <mat-table [dataSource]="dataSource">
 	<!-- ID Column -->
 	<ng-container matColumnDef="id">
@@ -28,5 +32,3 @@
 	<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 	<mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 </mat-table>
-
-<router-outlet></router-outlet>
