@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ProductData } from '../../models/product'
 import { ProductService } from '../../service/product.service'
-import { ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 import { FormGroup } from '@angular/forms'
 import { FormlyFieldConfig } from '@ngx-formly/core'
 
@@ -78,7 +78,7 @@ export class ProductFormComponent implements OnInit {
 		},
 	]
 
-	constructor(private product: ProductService, private route: ActivatedRoute) {
+	constructor(private product: ProductService, private route: ActivatedRoute, private router: Router) {
 		this.route.params.subscribe((params) => {
 			this.id = params?.id
 		})
@@ -98,11 +98,11 @@ export class ProductFormComponent implements OnInit {
 		}
 	}
 
-	public onSubmit(data) {
+	public async onSubmit(data) {
 		console.log(data)
-		const newProduct = this.product.createNewProduct(data)
+		const newProduct = await this.product.createNewProduct(data)
 		if (newProduct) {
-			this.route.navigateTo(['/admin'])
+			this.router.navigate(['/admin'])
 		}
 	}
 }
