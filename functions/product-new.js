@@ -8,8 +8,6 @@ exports.handler = async (event, context) => {
 
 	const { body } = event
 
-	console.log('event: ', event)
-
 	if (event.httpMethod === 'OPTIONS') {
 		return { statusCode: 200, headers, body: 'Ok' }
 	}
