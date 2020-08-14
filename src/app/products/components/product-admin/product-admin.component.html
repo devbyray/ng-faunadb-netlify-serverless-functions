@@ -1,0 +1,34 @@
+<header class="admin__header">
+	<h1>Products admin</h1>
+	<button [routerLink]="['/admin/product/new']" mat-flat-button color="secondary">New product</button>
+</header>
+
+<mat-table [dataSource]="dataSource">
+	<!-- ID Column -->
+	<ng-container matColumnDef="id">
+		<mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+		<mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+	</ng-container>
+
+	<!-- Name Column -->
+	<ng-container matColumnDef="name">
+		<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+		<mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+	</ng-container>
+
+	<!-- Price Column -->
+	<ng-container matColumnDef="price">
+		<mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+		<mat-cell *matCellDef="let element"> {{ element.price }} </mat-cell>
+	</ng-container>
+
+	<ng-container matColumnDef="actions">
+		<mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+		<mat-cell *matCellDef="let element">
+			<button [routerLink]="['/admin/product/', element.id]" mat-flat-button color="primary">Edit</button>
+		</mat-cell>
+	</ng-container>
+
+	<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+	<mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
