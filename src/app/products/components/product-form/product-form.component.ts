@@ -99,9 +99,10 @@ export class ProductFormComponent implements OnInit {
 	}
 
 	public async onSubmit(data) {
+		console.log('new: ', this.id)
 		console.log(data)
-		const newProduct = await this.product.createNewProduct(data)
-		if (newProduct) {
+		let product = this.id === 'new' ? await this.product.createNewProduct(data) : await this.product.updateProduct(this.id, data)
+		if (product) {
 			this.router.navigate(['/admin'])
 		}
 	}

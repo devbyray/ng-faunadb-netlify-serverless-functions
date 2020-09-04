@@ -4,9 +4,10 @@ import { client, headers } from '../lib/config.js'
 const service = new ProductService({ client })
 
 exports.handler = async (event, context) => {
-	console.log('Function `product-new` invoked')
+	console.log('Function `product-update` invoked')
 
 	const { body, path } = event
+	const productId = path.substr(path.lastIndexOf('/') + 1)
 
 	if (event.httpMethod === 'OPTIONS') {
 		return { statusCode: 200, headers, body: 'Ok' }
@@ -23,14 +24,14 @@ exports.handler = async (event, context) => {
 		}
 	}
 
-	if (event.httpMethod !== 'POST') {
+	if (event.httpMethod !== 'PUT') {
 		return { statusCode: 405, headers, body: 'Method Not Allowed' }
 	}
 
 	try {
 		let product = null
-		if (event.httpMethod === 'POST') {
-			product = await service.createNewProduct(parsedBody)
+		if (event.httpMethod === 'PUT' && productId) {
+			product = await service.updateProduct(productId, parsedBody)
 		}
 		return {
 			statusCode: 200,

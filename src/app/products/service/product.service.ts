@@ -67,4 +67,17 @@ export class ProductService {
 		}
 		return product
 	}
+	public async updateProduct(productId: string, productData) {
+		if (!productData) return
+
+		let product = null
+
+		try {
+			product = await this.http.put<Product>(environment.apiUrl + 'product-update/' + productId, productData).toPromise()
+		} catch (error) {
+			console.error('error: ', error)
+			return error
+		}
+		return product
+	}
 }
