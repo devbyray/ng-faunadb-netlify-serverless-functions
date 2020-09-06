@@ -25,7 +25,12 @@
 	<ng-container matColumnDef="actions">
 		<mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
 		<mat-cell *matCellDef="let element">
-			<button [routerLink]="['/admin/product/', element.id]" mat-flat-button color="primary">Edit</button>
+			<button [routerLink]="['/admin/product/', element.id]" mat-icon-button color="primary" aria-label="Edit product">
+				<mat-icon>edit</mat-icon>
+			</button>
+			<button mat-icon-button color="error" aria-label="Delete product" (click)="deleteProduct(element.id)">
+				<mat-icon>delete</mat-icon>
+			</button>
 		</mat-cell>
 	</ng-container>
 

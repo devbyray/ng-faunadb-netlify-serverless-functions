@@ -67,6 +67,7 @@ export class ProductService {
 		}
 		return product
 	}
+
 	public async updateProduct(productId: string, productData) {
 		if (!productData) return
 
@@ -74,6 +75,20 @@ export class ProductService {
 
 		try {
 			product = await this.http.put<Product>(environment.apiUrl + 'product-update/' + productId, productData).toPromise()
+		} catch (error) {
+			console.error('error: ', error)
+			return error
+		}
+		return product
+	}
+
+	public async deleteProduct(productId: string) {
+		if (!productId) return
+
+		let product = null
+
+		try {
+			product = await this.http.delete<Product>(environment.apiUrl + 'product-delete/' + productId).toPromise()
 		} catch (error) {
 			console.error('error: ', error)
 			return error

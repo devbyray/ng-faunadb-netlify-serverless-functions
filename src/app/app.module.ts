@@ -24,8 +24,9 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatTableModule } from '@angular/material/table'
+import { MatIconModule } from '@angular/material/icon'
 
-import { ProductAdminComponent } from './products/components/product-admin/product-admin.component';
+import { ProductAdminComponent } from './products/components/product-admin/product-admin.component'
 import { ProductFormComponent } from './products/components/product-form/product-form.component'
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ProductFormComponent } from './products/components/product-form/product
 		MatRadioModule,
 		MatSelectModule,
 		MatTableModule,
+		MatIconModule,
 
 		MatNativeDateModule,
 		FormlyMatDatepickerModule,
