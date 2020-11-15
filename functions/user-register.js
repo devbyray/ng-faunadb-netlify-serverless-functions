@@ -1,5 +1,5 @@
 import { UsersService } from '../lib/user-service.js'
-import { client, headers } from '../lib/config.js'
+import { client, headers, isHttpMethod } from '../lib/config.js'
 
 const service = new UsersService({ client })
 
@@ -19,7 +19,7 @@ exports.handler = async (event, context) => {
 		return {
 			statusCode: 400,
 			headers,
-			body: JSON.stringify({ message: 'Some product data is missing', parsedBody }),
+      body: JSON.stringify({ message: 'Some user data is missing', parsedBody }),
 		}
 	}
 
@@ -35,12 +35,23 @@ exports.handler = async (event, context) => {
 			body: JSON.stringify(user),
 		}
 	} catch (error) {
-		console.log('error', error)
+    console.log('error', error)
 
-		return {
-			statusCode: 400,
-			headers,
-			body: JSON.stringify(error),
-		}
-	}
+    // User already exists
+    if (error === 'This user cannot be created') {
+      return {
+        statusCode: 403,
+        headers,
+        body: JSON.stringify(error),
+      }
+    } else {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify(error),
+      }
+    }
+
+
+  }
 }
