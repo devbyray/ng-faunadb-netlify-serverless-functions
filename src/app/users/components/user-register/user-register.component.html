@@ -1,0 +1,6 @@
+<div class="user__register">
+  <form [formGroup]="form" (ngSubmit)="registerUser(model)">
+		<formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+		<button mat-flat-button color="primary" type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>

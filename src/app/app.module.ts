@@ -23,9 +23,16 @@ import { MatRadioModule } from '@angular/material/radio'
 import { MatSelectModule } from '@angular/material/select'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatNativeDateModule } from '@angular/material/core'
+import { MatTableModule } from '@angular/material/table'
+import { MatIconModule } from '@angular/material/icon'
+
+import { ProductAdminComponent } from './products/components/product-admin/product-admin.component'
+import { ProductFormComponent } from './products/components/product-form/product-form.component';
+import { UserRegisterComponent } from './users/components/user-register/user-register.component';
+import { UserAuthComponent } from './users/components/user-auth/user-auth.component'
 
 @NgModule({
-	declarations: [AppComponent, ProductListComponent, ProductItemComponent, ProductItemComponent],
+	declarations: [AppComponent, ProductListComponent, ProductItemComponent, ProductItemComponent, ProductAdminComponent, ProductFormComponent, UserRegisterComponent, UserAuthComponent],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
@@ -43,6 +50,8 @@ import { MatNativeDateModule } from '@angular/material/core'
 		MatInputModule,
 		MatRadioModule,
 		MatSelectModule,
+		MatTableModule,
+		MatIconModule,
 
 		MatNativeDateModule,
 		FormlyMatDatepickerModule,
