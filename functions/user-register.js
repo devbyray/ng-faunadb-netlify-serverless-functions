@@ -1,5 +1,5 @@
 import { UsersService } from '../lib/user-service.js'
-import { client, headers, isHttpMethod } from '../lib/config.js'
+import { client, headers } from '../lib/config.js'
 
 const service = new UsersService({ client })
 

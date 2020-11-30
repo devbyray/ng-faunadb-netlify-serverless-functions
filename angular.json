@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ng-faunadb-netlify-serverless-functions"
+  "defaultProject": "ng-faunadb-netlify-serverless-functions",
+  "cli": {
+    "analytics": false
+  }
 }
