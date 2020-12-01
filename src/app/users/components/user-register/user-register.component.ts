@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { User } from '../../models/user';
 import { UserService } from '../../service/user.service';
@@ -35,22 +36,21 @@ export class UserRegisterComponent implements OnInit {
     },
   ];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
 
   public async registerUser(user: User): Promise<void> {
     console.log('user: ', user);
-    let userData = null
+    let userData = null;
     try {
-      userData = await this.userService.registerUser(user)
+      userData = await this.userService.registerUser(user);
     } catch (error) {
-      console.error('error: ', error)
+      console.error('error: ', error);
     }
-    if(userData?.username) {
-      this.model = new User({})
+    console.log('userData: ', userData);
+    if  (userData?.data?.username) {
+      this.router.navigate(['/admin']);
     }
-    console.log('userData: ', userData)
-
   }
 }
